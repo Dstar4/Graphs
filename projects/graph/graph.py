@@ -153,8 +153,6 @@ class Graph:
                         return new_path
                 visited.append(node)
 
-        pass  # TODO
-
 
 if __name__ == '__main__':
     graph = Graph()  # Instantiate your graph
