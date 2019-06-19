@@ -24,7 +24,7 @@ Try this exercise:
 Write down 10 random numbers between 1-10.
 ```
 
-What were you thinking while choosing numbers? Did you have thoughts like, "I already picked 7 twice so I shouldn't pick 7 again," or, "I need a 5 since there hasn't been one yet." Everytime you use rationale like this, you add personal bias, making your choices more predictable and less random.
+What were you thinking while choosing numbers? Did you have thoughts like, "I already picked 7 twice so I shouldn't pick 7 again," or, "I need a 5 since there hasn't been one yet." Every time you use rationale like this, you add personal bias, making your choices more predictable and less random.
 
 Computers are pretty good at this sort of randomness. Here's a Python list comprehension that runs this exercise 10 times in a row:
 

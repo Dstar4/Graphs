@@ -39,50 +39,14 @@ class Graph:
         else:
             raise IndexError("That vertex does not exist!")
 
-    def dfs(self, starting_vertex):
-        return_paths = []
-        visited = set()
-        s = Stack()
 
-        root_node = [starting_vertex]
-        s.push(root_node)
-
-        while s.size() > 0:
-            path = s.pop()
-            node = path[-1]
-
-            if node not in visited:
-                visited.add(node)
-                if len(self.visited[node]) == 0:
-                    return_paths.append(path)
-
-                for next_vertex in self.vertices[node]:
-                    if next_vertex in self.vertices[node]:
-                        if next_vertex not in visited:
-                            new_path = path.copy()
-                            new_path.append(next_vertex)
-
-                            s.push(new_path)
-
-        max_path_len = float('-inf')
-        parent_vertex = float('inf')
-
-        for path in return_paths:
-            if len(path) > max_path_len:
-                max_path_len = len(path)
-                parent_vertex = path[-1]
-
-            if len(path) == max_path_len:
-                parent_vertex = min(parent_vertex, path[-1])
-
-        if parent_vertex == starting_vertex:
-            parent_vertex = -1
-
-        return parent_vertex
-
-
-def earliest_ancestor(dataset, item):
-    print(item, dataset)
+def earliest_ancestor(ancestors, starting_node):
+    # Build the graph
+    # build edges in reverse
+    # track the longest path length and the earliest ancestor node
+    # do a bfs from starting_node to each other node
+    # if path is longer or path is the same length and node is smaller
+    #    return the longest path length
 
 
 if __name__ == '__main__':
