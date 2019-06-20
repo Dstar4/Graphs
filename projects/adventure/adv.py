@@ -45,16 +45,53 @@ player = Player("Name", world.startingRoom)
 
 # Fill this out
 traversalPath = []
-options = {0: {"n": "?", "s": "?", "w": "?", "e": "?"}}
+graph = {0: {"n": "?", "s": "?", "w": "?", "e": "?"}}
 
 
-def bfs(starting_node):
+def bfs(self, starting_vertex, destination_vertex):
+    """
+    Return a list containing the shortest path from
+    starting_vertex to destination_vertex in
+    breath-first order.
+    """
+
+    # Create an empty set to store visited nodes
     visited = set()
+    # Create an empty Queue and enqueue A PATH TO the starting vertex
     q = Queue()
-    q.enqueue(starting_node)
+    q.enqueue([starting_vertex])
+    # While the queue is not empty...
+    if starting_vertex == destination_vertex:
+        return starting_vertex
+    while q.size() > 0:
+        # Dequeue the first PATH
+        path = q.dequeue()
+
+        # GRAB THE VERTEX FROM THE END OF THE PATH
+        node = path[-1]
+        # If that vertex has not been visited...
+        if node not in visited:
+            # IF VERTEX = TARGET, RETURN PATH
+            if node == destination_vertex:
+                return path
+                # Mark it as visited
+                visited.add(node)
+        # Then add A PATH TO all of its neighbors to the back of the queue
+            # print(node)
+            # print(path)
+
+            for next_node in self.vertices[node]:
+                # Copy the path
+                new_path = path.copy()
+                # Append neighbor to the back of the copy
+                new_path.append(next_node)
+                # Enqueue copy
+                q.enqueue(new_path)
+    return None
+
+# Implement DFS movement algorithm
 
 
-traversalPath.append('n')
 # TRAVERSAL TEST
 visited_rooms = set()
 player.currentRoom = world.startingRoom
