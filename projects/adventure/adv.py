@@ -77,13 +77,13 @@ def bfs(starting_vertex):
                 q.enqueue(new_path)
     return None
 
-# find directions
+# find directions to unexplored room
 # pass in path to unexplored
 def path(route):
     current_room = route[0]
     directions = []
     # build directions to the nearest unexplored exit
-    for room in route[1:]:
+    for room in route:
         print("room",room)
         for exit in graph[current_room]:
             print("exit",exit)
@@ -122,8 +122,9 @@ while True:
         graph[prev_room][first_exit] = player.currentRoom.id
 
     else:
-        # use bfs to find nearest ?
+        # use bfs to find nearest room with a ?
         path_to_unexplored = bfs(player.currentRoom.id)
+        print("path_to_unexplored",path_to_unexplored)
         # if nothing left to explore end program
         if path_to_unexplored is None:
             break
